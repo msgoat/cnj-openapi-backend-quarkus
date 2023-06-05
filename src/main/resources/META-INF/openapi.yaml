@@ -1,0 +1,15 @@
+openapi: 3.0.1
+info:
+  title: ${project.artifactId}
+  description: ${project.description}
+  version: ${revision}
+  contact:
+    url: https://github.com/msgoat/cnj-openapi
+servers:
+  - url: https://apps.cloudtrain.aws.msgoat.eu/cloudtrain-int/cnj-openapi-quarkus-micro
+components:
+  securitySchemes:
+    oidc:
+      type: openIdConnect
+      openIdConnectUrl: https://oidc.cloudtrain.aws.msgoat.eu/realms/cloudtrain/.well-known/openid-configuration
+
