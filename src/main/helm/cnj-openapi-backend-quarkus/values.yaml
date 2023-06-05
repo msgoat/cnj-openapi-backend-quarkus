@@ -19,15 +19,15 @@ container:
     image:
       repository: ${docker.image.name}
       tag: ${project.version}
-      pullPolicy: Always # IfNotPresent
+      pullPolicy: IfNotPresent
     ports:
       http:
         number: 8080
     probes:
       readiness:
-        path: /api/v1/probes/readiness
+        path: /q/health/ready
       liveness:
-        path: /api/v1/probes/liveness
+        path: /q/health/live
     resources:
       limits:
         # since JVMs tend to spike during startup we don't provide a cpu limit
@@ -35,7 +35,7 @@ container:
         memory: 1Gi
       requests:
         cpu: 250m
-        memory: 756Mi
+        memory: 1Gi
     securityContext:
       capabilities:
         drop:
@@ -51,8 +51,8 @@ service:
 
 ingress:
   enabled: true
-  class: traefik
-  type: traefik
+  class: nginx
+  type: nginx
   host: "${k8s.ingress.host}"
   path: "${k8s.ingress.path}"
   pathType: Prefix
