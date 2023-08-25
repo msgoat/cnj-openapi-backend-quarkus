@@ -1,12 +1,12 @@
 package group.msg.at.cloud.cloudtrain.core.entity;
 
-import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
-
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -192,7 +192,7 @@ public class Task {
     private LocalDateTime lastModifiedAt;
 
     public Task() {
-
+        super();
     }
 
     public UUID getId() {

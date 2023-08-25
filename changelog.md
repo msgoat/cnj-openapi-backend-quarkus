@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Fixed
 
+## [2.1.0] - 2023-08-25
+### Changed
+- added explicit dependency to CloudTrain Maven repository to POM to simplify local builds
+- allowed anonymous read access to CloudTrain Maven repository to simplify local builds
+- added global docker-compose.yml file to simplify local execution
+- improved documentation in README.md
+- fixed broken system tests verifying OpenAPI endpoints
+
 ## [2.0.0] - 2023-06-05
 ### Changed
 - first release after repo split

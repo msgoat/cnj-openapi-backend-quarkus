@@ -2,10 +2,10 @@ package group.msg.at.cloud.cloudtrain.core.control;
 
 import group.msg.at.cloud.cloudtrain.adapter.rest.grantedpermissions.GrantedPermission;
 import group.msg.at.cloud.cloudtrain.adapter.rest.grantedpermissions.GrantedPermissionsClient;
-import org.eclipse.microprofile.rest.client.inject.RestClient;
-
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+
 import java.security.Principal;
 import java.util.List;
 

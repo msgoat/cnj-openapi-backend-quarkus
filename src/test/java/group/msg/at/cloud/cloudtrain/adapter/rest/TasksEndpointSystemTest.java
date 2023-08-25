@@ -5,14 +5,14 @@ import group.msg.at.cloud.common.test.rest.RestAssuredSystemTestFixture;
 import io.restassured.http.ContentType;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
+import jakarta.json.Json;
+import jakarta.json.JsonArray;
+import jakarta.json.JsonObject;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import jakarta.json.Json;
-import jakarta.json.JsonArray;
-import jakarta.json.JsonObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
@@ -52,20 +52,20 @@ public class TasksEndpointSystemTest {
             try {
                 given().auth().oauth2(fixture.getAccessToken()).delete(current).then().assertThat().statusCode(204);
             } catch (AssertionError ex) {
-                System.err.println(String.format("failed to delete task at [%s]: got unexpected status code: %s", current, ex.getMessage()));
+                System.err.printf("failed to delete task at [%s]: got unexpected status code: %s%n", current, ex.getMessage());
             } catch (Exception ex) {
-                System.err.println(String.format("failed to delete task at [%s]: got unexpected exception: %s", current, ex.getMessage()));
+                System.err.printf("failed to delete task at [%s]: got unexpected exception: %s%n", current, ex.getMessage());
             }
         }
     }
 
     @Test
-    public void postWithValidTaskReturns201AndLocation() {
+    void postWithValidTaskReturns201AndLocation() {
         addTask(createTask());
     }
 
     @Test
-    public void getWithValidTaskIdReturnsValidTask() {
+    void getWithValidTaskIdReturnsValidTask() {
         JsonObject expected = createTask();
         String location = addTask(expected);
         ExtractableResponse response = given().log().body(true).auth().oauth2(fixture.getAccessToken())
@@ -82,7 +82,7 @@ public class TasksEndpointSystemTest {
     }
 
     @Test
-    public void getWithoutTaskIdReturnsAllTasks() {
+    void getWithoutTaskIdReturnsAllTasks() {
         addTask(createTask());
         ExtractableResponse response = given().auth().oauth2(fixture.getAccessToken())
                 .accept(ContentType.JSON)

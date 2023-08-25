@@ -29,10 +29,18 @@ public class OpenApiEndpointSystemTest {
     }
 
     @Test
-    public void getOpenApiReturns200AndOpenApiYaml() {
-        given().get("/openapi")
+    void getOpenApiReturns200AndOpenApiYaml() {
+        given().get("/q/openapi")
                 .then()
                 .statusCode(200)
-                .contentType(ContentType.TEXT);
+                .contentType("application/yaml;charset=UTF-8");
+    }
+
+    @Test
+    void getSwaggerUiReturns200AndHtml() {
+        given().get("/q/swagger-ui")
+                .then()
+                .statusCode(200)
+                .contentType(ContentType.HTML);
     }
 }
