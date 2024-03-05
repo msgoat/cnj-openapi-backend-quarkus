@@ -2,17 +2,9 @@
 
 Cloud native Java backend based on Quarkus using MP OpenAPI to document REST APIs.
 
-## Status
-
-![Build status](https://codebuild.eu-west-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiZmoyTzBGYnBJUUhaU2V0bGwzZmg1NXdEL0dJejVFN2xVd2ZRNzUxM1c3SWxPYVBLemNBNU5UZm1XTE96MUNCS3BlS203OERIM0piVmpUbFYwbCs3dllzPSIsIml2UGFyYW1ldGVyU3BlYyI6Iko0aUFLNFAvYTRXeHhFM2wiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
-
-## Release Information
-
-A changelog can be found in [changelog.md](changelog.md).
-
-## Docker Pull Command
-
-`docker pull docker.cloudtrain.aws.msgoat.eu/cloudtrain/cnj-openapi-backend-quarkus`
+The application is packaged as a multi-architecture docker image which supports the following platforms:
+* linux/amd64
+* linux/arm64/v8
 
 ## Synopsis
 
@@ -34,6 +26,22 @@ A Swagger UI for the exposed REST API is available as well via `/q/swagger-ui`.
 > __Attention__: By default, the Swagger UI is switched off when Quarkus is not running in developer mode. If you want
 > to have the Swagger UI even in production mode, you have to add the property `quarkus.swagger-ui.always-include=true`
 > to your `application.properties` file.
+
+## Status
+
+![Build status](https://codebuild.eu-west-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiZmoyTzBGYnBJUUhaU2V0bGwzZmg1NXdEL0dJejVFN2xVd2ZRNzUxM1c3SWxPYVBLemNBNU5UZm1XTE96MUNCS3BlS203OERIM0piVmpUbFYwbCs3dllzPSIsIml2UGFyYW1ldGVyU3BlYyI6Iko0aUFLNFAvYTRXeHhFM2wiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
+
+## Release Information
+
+A changelog can be found in [changelog.md](changelog.md).
+
+## Docker Pull Command
+
+`docker pull docker.cloudtrain.aws.msgoat.eu/cloudtrain/cnj-openapi-backend-quarkus`
+
+## Helm Pull Command
+
+`helm pull oci://docker.cloudtrain.aws.msgoat.eu/cloudtrain-charts/cnj-openapi-backend-quarkus`
 
 ## HOW-TO build this application locally
 
